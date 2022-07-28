@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Полезные команды</title>
+</head>
+<body>
+  <div class="tooltip" style="display:none">
+    <p data-tooltip>tt</p>
+  </div>
+  <div class="theme">
+    <i class="fa-solid fa-moon" id="toggleThemeDark"></i>
+    <i class="fa-solid fa-sun opacity-0" id="toggleThemeLight"></i>
+  </div>
+  <h1>Полезные команды</h1>
+  <main>
+    <h3>Сбросить Перезвоны / Удалить Старые Записи</h3>
+    <fieldset>
+      <code data-code="delete_calls">
+        UPDATE `<input data-input="campaign_name" type="text" class="inline_editable" value="campaign_name"><span data-span="campaign_name"></span>` SET `callback` = '2020-07-28 07:00:00' WHERE `status` = 'cb';<br>
+      UPDATE `<input data-input="campaign_name" type="text" class="inline_editable" value="campaign_name"><span data-span="campaign_name"></span>_n` SET `callback` = '2020-07-28 07:00:00' WHERE `status` = 'cb';<br>
+      UPDATE `<input data-input="campaign_name" type="text" class="inline_editable" value="campaign_name"><span data-span="campaign_name"></span>_n2` SET `callback` = '2020-07-28 07:00:00' WHERE `status` = 'cb';<br><br>
+      
+      UPDATE `<input data-input="campaign_name" type="text" class="inline_editable" value="campaign_name"><span data-span="campaign_name"></span>` SET `status` = 'deleted', `adddate` = NOW() WHERE `status` IN ('cb','nc');<br> 
+      UPDATE `<input data-input="campaign_name" type="text" class="inline_editable" value="campaign_name"><span data-span="campaign_name"></span>_n` SET `status` = 'deleted', `adddate` = NOW() WHERE `status` IN ('cb','nc');<br> 
+      UPDATE `<input data-input="campaign_name" type="text" class="inline_editable" value="campaign_name"><span data-span="campaign_name"></span>_n2` SET `status` = 'deleted', `adddate` = NOW() WHERE `status` IN ('cb','nc');<br>
+      </code>
+      <button id="copy_del_calls"><i class="fa-solid fa-copy"></i></button>
+    </fieldset>
+    <h3>next usefull command</h3>
+    <fieldset>
+      bla bla bla
+    </fieldset>
+  </main>
+</body>
+</html>

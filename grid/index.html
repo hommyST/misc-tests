@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Grid</title>
+</head>
+<body>
+  <div class="tooltip" style="display:none">
+    <p data-tooltip>цуйуйцуйцуйцу</p>
+  </div>
+  <div class="cards">
+    <div class="card purple grid-col-span-2">
+      <p>1111</p>
+    </div>
+    <div class="card red">
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque veritatis iusto voluptates tempora facilis iure explicabo ipsam. Consequuntur saepe maxime eius repellendus consectetur molestiae. Doloribus omnis eveniet fugiat numquam vero!</p>
+    </div>
+    <div class="card green">
+      <h4>Title</h4>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sint nam earum, iusto delectus laudantium?</p>
+    </div>
+    <div class="card orange grid-col-span-2">
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas, natus aliquam doloribus iste accusamus illum! Quibusdam vero error eveniet nesciunt laboriosam sapiente odio repellat voluptates!</p>
+    </div>
+    <div class="card">
+      <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae corrupti ducimus explicabo dolore consectetur suscipit? Ipsum dolorum sint hic praesentium ex illo, fuga quia! Dolorem veniam facere magnam temporibus nulla?</p>
+    </div>
+  </div>
+  
+  <script>
+    let isTooltip = false;
+    let cards = document.querySelector('.cards');
+    cards.addEventListener('mouseup', copyToMouse);
+
+    function copyToMouse(ev) {
+      let selection = window.getSelection();
+      if (selection.type === 'Range') {
+        let txt = selection.toString();
+        if (!isTooltip) {
+          navigator.clipboard.writeText(txt)
+            .then(() => showTooltip(ev, txt)) 
+            .catch((er) => console.log(er));
+        }
+      }
+    }
+
+    function showTooltip (ev, message = 'some message') {
+      isTooltip = true;
+      const tooltip = document.querySelector('.tooltip');
+      const tooltipText = tooltip.querySelector('p[data-tooltip]');
+      
+      tooltipText.textContent = `Скопировано: "${message}"`;
+      tooltip.style.display = 'block';
+      let leftPos = (ev.pageX >= (window.innerWidth / 2)) ? (ev.pageX - tooltip.clientWidth) + 'px' : ev.pageX + 'px';
+      tooltip.style.left = leftPos;
+      tooltip.style.top = ev.pageY + 'px';
+
+      setTimeout(() => {
+        tooltip.style.display = 'none';
+        isTooltip = false;
+      },3000)
+    }
+  </script>
+</body>
+</html>

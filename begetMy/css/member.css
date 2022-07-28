@@ -1,0 +1,144 @@
+
+/* MAIN */
+body {
+  background-color: #2e4e90;
+}
+
+main {
+  margin: 100px 5% 0 5%;
+  color: rgb(236, 236, 236);
+}
+
+
+.main__container {
+  padding: 0 10%;
+}
+
+
+/* GAME */
+.cards {
+  display: inline-block;
+  width: 170px;
+  height: 220px;
+  margin: 0 1% 1% 1%;
+  position: relative;
+  
+  /* background: white; */
+}
+
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.front {
+  transform: rotateY(180deg);
+}
+
+.active .front  {
+  transform: rotateY(360deg);
+}
+.active .back  {
+  transform: rotateY(180deg);
+}
+
+
+@media (max-width: 800px ) {
+  main {
+    margin: 100px 0 0 0 ;
+  }
+  .main__container {
+    padding: 0 1%;
+  }
+  .cards {
+    width: 14%;
+    height: 141px;
+  }
+}
+@media (max-width: 700px ) {
+  main {
+    margin: 100px 0 0 0 ;
+  }
+  .main__container {
+    padding: 0 1%;
+  }
+  .cards {
+    width: 85px;
+    height: 114px;
+  }
+}
+@media (max-width: 392px) {
+  main {
+    margin: 100px 0 0 0 ;
+  }
+  .main__container {
+    padding: 0 1%;
+  }
+  .cards {
+    width: 78px;
+    height: 114px;
+  }
+}
+
+img {
+  box-shadow: 3px 4px 3px 1px #000;
+}
+
+
+/* POPUP */
+.win__popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.8s ease 0;
+}
+.win__popup_body{
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .win__popup_body:active .win__popup_content{
+  color: #2e4e90;
+}
+ */
+ .win__popup_content {
+  text-align: center;
+  font-size: 29px;
+  padding: 10px;
+}
+.popup__data_content {
+  font-size: 20px;
+}
+#restart {
+  display: block;
+  position: absolute;
+  bottom: 10%;
+  text-transform: uppercase;
+  font-size: 20px;
+  background-color: #2e4e90;
+  color: #fff;
+  padding: 10px;
+  border: 2px solid #375eac;
+  border-radius: 35px 5px 35px 5px;
+  text-align: center;
+}
+#restart:hover {
+  background-color: #243e72;
+
+}

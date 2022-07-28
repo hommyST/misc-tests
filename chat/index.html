@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="/tests/socket/node_modules/socket.io/client-dist/socket.io.js"></script>
+  <!-- <script src="/socket/node_modules/socket.io/client-dist/socket.io.js"></script> -->
+  <script src="index.js" defer></script>
+  <title>Чатик</title>
+</head>
+<body>
+  <div class="modal greeting">
+    <div class="wrap">
+      <label>Введите имя: <input type="text" class="modal--name"></label>
+      <button class="modal--btn" id="enterBtn">Войти</button>
+    </div>
+  </div>
+
+  <main>
+    <div class="wrap">
+      <h1>Welcome!</h1>
+      <div class="chat_out">
+        </div>
+      </div>
+
+      <form class="chat_form">
+        <input type="text" class="chat_form__input" id="chatInput" autocomplete="off">
+        <button id="send" class="chat_form__btn">Отправить</button>
+      </form>
+      <div class="users_list"></div>
+    </div>
+  </main>
+</body>
+</html>

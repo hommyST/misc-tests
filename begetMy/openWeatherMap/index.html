@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="weather.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://unpkg.com/mustard-ui@latest/dist/css/mustard-ui.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>OpenWeather</title>
+</head>
+
+<body>
+  <div style="position: fixed;width: 100%;">
+    <div class="progress-bar striped animated" style="display:block;margin:0;" id="cityLoading">
+      <span class="progress-bar-blue" style="width: 100%;"></span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-lg-2"></div>
+    <div class="col col-lg-8">
+      <h1 class="align-center">Учим географию</h1>
+      <div class="row">
+        <div class="col col-lg-6">
+          <p><label>Город: <div style="position:relative;"><input type="text" id="cityInput"
+                  placeholder="Введите название города"><span class="clear_city_input">X</span></div></label></p>
+          <p><button class="button-success button-small" id="lucky">Мне повезёт</button></p>
+        </div>
+        <div class="col col-lg-6">
+          <div id="out">
+            <ul class="tags"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-lg-6">
+          <div class="card align-center out_card" id="outCard" style="display:none;min-width: 310px;">
+            <div class="card-title" id="cityName"></div>
+            <p id="countyName"></p>
+            <img src="" alt="" id="cloudImg">
+            <p id="cloudDecription"></p>
+            <div class="align-left">
+              <p>Температура: <span id="temperature"></span>&deg;</p>
+              <p>Ветер: <span id="wind"></span> м/с</p>
+              <p>Рассвет: <span id="sunrise"></span></p>
+              <p>Закат: <span id="sunset"></span></p>
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-6">
+          <div class="card" style="height:100%;">
+            <div id="map" style="width: 100%; height: 100%;min-height: 388px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col col-lg-2"></div>
+  </div>
+
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=37d15925-7199-45b7-aa3c-7c6b62c23255&lang=ru_RU"
+    type="text/javascript"></script>
+  <script src="./assets/countryList.js"></script>
+  <script src="./assets/cityList.js"></script>
+  <script src="script.js"></script>
+  <!-- <script src="ymap.js"></script> -->
+</body>
+
+</html>
+
+<!-- "http://openweathermap.org/img/w/" + iconcode + ".png" -->
+<!-- "http://openweathermap.org/img/wn/01d.png" -->
+<!-- "http://openweathermap.org/img/w/01d.png" -->

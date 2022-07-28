@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>localst</title>
+</head>
+<body>
+  <p><input type="text" id="inp"></p>
+  <p><input type="text" id="inp2"></p>
+  <div id="out"></div>
+  <button id="save">SAVE</button>
+  <button id="load">LOAD</button>
+  <button id="clear">CLEAR</button>
+
+  <script>
+    const inp = document.querySelector('#inp');
+    const inp2 = document.querySelector('#inp2');
+    const out = document.querySelector('#out');
+    const save = document.querySelector('#save');
+    const load = document.querySelector('#load');
+    const clear = document.querySelector('#clear');
+    const MY = {};
+    let infInLS;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadFromLS();
+      out.textContent = infInLS;
+    });
+
+    save.addEventListener('click', () => {
+      let val = inp.value;
+      let val2 = inp2.value;
+
+      MY.inp1 = val;
+      MY.inp2 = val;
+
+      localStorage.setItem('my', val);
+      localStorage.setItem('my2', val2);
+      out.textContent = 'Записано в ЛС'
+      infInLS = 'Записано в ЛС'
+    })
+    clear.addEventListener('click', () => {
+      localStorage.clear('my');
+    })
+
+    load.addEventListener('click', loadFromLS)
+
+    function loadFromLS() {
+      let my = localStorage.getItem('my');
+      console.log(typeof my);
+
+      out.textContent = my;
+      infInLS = my;
+    }
+
+
+    // localStorage.setItem('my', 'value'); //установить
+    // localStorage.getItem('my'); //получить
+    // localStorage.removeItem('my'); //удалить ключ
+    // localStorage.clear(); //ОЧИСТИТЬ ВЕСЬ локалСтораж
+
+  </script>
+</body>
+</html>

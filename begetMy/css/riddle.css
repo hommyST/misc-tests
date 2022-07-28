@@ -1,0 +1,176 @@
+body {
+  background-color: rgb(47, 121, 96);
+
+}
+
+
+/* RIDDLE */
+#ans {
+  opacity: 0;
+}
+#ans:active {
+  opacity: 1;
+}
+
+main {
+  margin: 100px 5% 0 5%;
+}
+.text {
+  text-align: left;
+}
+
+.riddle {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 150px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  
+
+}
+.riddle__card {
+  display: block;
+  width: 100px;
+  height: 120px;
+  cursor: pointer;
+  font-size: 80px;
+  font-weight: 900;
+  text-align: center;
+  border: 2px solid #4dc570;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px #4dc570;
+  margin-bottom: 15px;
+  
+  background-color: #f9ff67;
+  color: #4dc570;
+  
+}
+
+
+/* Refresh button */
+.refresh-container {
+  position: fixed;
+  right: 3%;
+  bottom: 3%;
+  width: 70px;
+  height: 70px;
+  background-color: #4dc570;
+  border: 1px solid rgb(73 137 220 / 79%);
+  border-radius: 27px;
+  padding: 1%;
+  box-sizing: border-box;
+  
+}
+#refresh {
+  transition: .25s;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+/* CARD TEXT */
+.card1::before {
+  content: '1';
+}
+.card2::before {
+  content: '2';
+}
+.card3::before {
+  content: '3';
+}
+.card4::before {
+  content: '4';
+}
+.card5::before {
+  content: '5';
+}
+.card6::before {
+  content: '6';
+}
+.card7::before {
+  content: '7';
+}
+.card8::before {
+  content: '8';
+}
+.card9::before {
+  content: '9';
+}
+
+.card_yes {
+  background-color: #4dc570;
+  color: #878a39;
+}
+.card_no {
+  background-color: #c54d4d;
+  color: #15532a;
+  border-color: #c54d4d;
+  
+}
+
+@media (min-width: 1023px){
+  .riddle__card:hover {
+      background-color: #878a39;
+      color: #5ff78d;
+  }
+  #refresh:hover {
+      transform: rotateZ(180deg);
+  }
+}
+@media (max-width: 1023px) {
+  #refresh:active {
+      transform: rotateZ(180deg);
+      }
+  .refresh-container {
+      padding: 4%;
+  }
+
+}
+/* POPUP */
+.win__popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.8s ease 0;
+}
+.win__popup_body{
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.win__popup_content {
+  text-align: center;
+  font-size: 29px;
+  padding: 10px;
+}
+.popup__data_content {
+  font-size: 20px;
+}
+#restart {
+  display: block;
+  position: absolute;
+  bottom: 10%;
+  text-transform: uppercase;
+  font-size: 20px;
+  background-color: #2e4e90;
+  color: #fff;
+  padding: 10px;
+  border: 2px solid #375eac;
+  border-radius: 35px 5px 35px 5px;
+  text-align: center;
+}
+#restart:hover {
+  background-color: #243e72;
+
+}

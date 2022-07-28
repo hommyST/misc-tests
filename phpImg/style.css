@@ -1,0 +1,13 @@
+input {
+  margin-bottom: 1.5rem;
+}
+form input:last-child {
+  margin-bottom: 2.5rem;
+}
+
+#uImg {
+	border: 2px solid lightblue;
+	box-shadow: 0 0 10px 3px #0000002b;
+	border-radius: 10px;
+  margin-top: 91px;
+}

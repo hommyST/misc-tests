@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,500;0,900;1,100&display=swap');
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+}
+body {
+  background-color: hsl(0, 0%, 91.4%);
+}
+main {
+	display: block;
+	width: min(100%, 80vw);
+	padding: 1.5rem;
+	margin-inline: auto;
+	box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.07);
+	border-radius: 0.7rem;
+}
+.tooltip {
+	position: absolute;
+	min-width: 150px;
+	max-width: 35ch;
+	min-height: 30px;
+	background-color: #ebebebc1;
+	border: 1px solid hsla(0, 0%, 11%, 0.2);
+	border-radius: 2.4rem;
+	box-shadow: 0 0 1rem hsla(0, 0%, 20%, 0.25);
+	box-sizing: border-box;
+	padding: 0.1rem 1.5rem;
+	user-select: none;
+  pointer-events: none;
+	z-index: 99;
+	text-align: justify;
+  animation: scaleFade 2050ms ease-in-out 1s;
+}
+@keyframes scaleFade {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.1);
+  }
+}
+fieldset {
+  border: 2px dashed hsla(56.4, 100%, 35.6%, 0.4);
+  border-radius: 0.4rem;
+  background-color: hsla(56.4, 100%, 51.6%, 0.06);
+  padding: 1.2rem;
+  position: relative;
+}
+
+.inline_editable {
+  all: unset;
+  border-bottom: 2px dotted #000;
+  padding-bottom: 1px;
+  background-color: hsla(30.8, 100%, 78.6%, 0.44);
+}
+
+[data-span] {
+  display: none;
+}
+
+button {
+	all: unset;
+	background-color: hsl(104, 87%, 78%);
+	padding: 0.5em 0.6em;
+	border-radius: 0.8rem;
+	box-shadow: 2px 3px 5px hsla(0, 0%, 7.8%, 0.4);
+  transition: all 140ms ease-in-out;
+  cursor: pointer;
+}
+button:hover {
+  transform: translate(2px, 3px);
+  box-shadow: none;
+  color: hsl(0, 0%, 53%);
+  box-shadow: inset 0px 0px 6px 1px hsl(0deg 0% 84%);
+}
+
+#copy_btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+}

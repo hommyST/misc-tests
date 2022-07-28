@@ -1,0 +1,105 @@
+.expandable {
+  $clr-1: hsl(113, 83%, 70%);
+  $clr-border: hsl(113, 90%, 51%);
+  $clr-bg: hsl(115, 26%, 92%);
+  
+  --transition-time: 1000ms;
+  --clr-fold: green;
+
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+
+  .border-bt-none {
+    border-bottom: 0;
+  }
+
+  &__main {
+    transform-origin: top;
+  }
+  &__main.open {
+    animation: open var(--transition-time) ease-in-out forwards;
+
+    .expandable__footer {
+      border-top: 0;
+    }
+  }
+
+  &__main.close {
+    animation: close var(--transition-time) ease-in-out forwards;
+  }
+
+  @keyframes open {
+    from {
+      display: block;
+      height: 0px;
+      // transform: scaleY(0);
+    }
+    to {
+      height: var(--main-height);
+      transform: scaleY(1);
+    }
+  }
+  @keyframes close {
+    from {
+      height: var(--main-height);
+    }
+    to {
+      height: 0px;
+      // transform: scaleY(0);
+    }
+  }
+
+
+  &__header,
+  &__footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+    width: 100%;
+    height: 1.5rem;
+  
+    padding: 0;
+    padding-left: 2rem;
+    margin: 0;
+  
+    background-color: $clr-bg;
+    border: 1px solid $clr-border;
+    border-radius: 0.6rem 0.6rem 0 0;
+
+    cursor: pointer;
+    transition: filter 140ms ease-in-out;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0.2rem;
+      width: 15px;
+      height: 15px;
+      background-color: var(--clr-fold);
+      transition: background-color var(--transition-time) ease;
+    }
+
+    &:hover {
+      filter: brightness(1.05);
+    }
+    &:active {
+      filter: brightness(0.9);
+    }
+  }
+
+  &__body {
+    // display: none;
+    padding: 1rem 2rem;
+    border-left: 1px solid $clr-border;
+    border-right: 1px solid $clr-border;
+  }
+  
+  &__footer {
+    // display: none;
+    border-radius: 0 0 0.6rem 0.6rem;
+  }
+
+}

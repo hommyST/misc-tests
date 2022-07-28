@@ -1,0 +1,99 @@
+* {
+  -webkit-user-select: text;
+  user-select: text;
+}
+body {
+  background-color: rgb(174, 218, 53);
+  box-sizing: border-box;
+}
+
+main {
+  margin: 100px 2% 0;
+}
+
+canvas {
+  /* border: 1px solid black; */
+  box-shadow: 3px 3px 5px grey;
+  display: block;
+  margin: 0 auto;
+  cursor: none;
+}
+
+/* PopUp */
+.wrap {
+  position: relative;
+  width: 60vw;
+  height: 80vh;
+  margin: 0 auto;
+}
+.start_screen {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  min-width: 60vw;
+  min-height: 80vh;
+  margin: 0 auto;
+
+  background-color: rgba(97, 202, 101, .5);
+  border-radius: 10px;
+  box-shadow: 0 0 20px black;
+
+  text-shadow: 2px 2px black;
+}
+.start_screen p {
+  font-size: 18px;
+}
+.start__button>span {
+  display: block;
+  margin: 0;
+  margin-bottom: 5px;
+}
+#life__input {
+  display: block;
+  margin-bottom: 30px;
+  width: 80px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+  outline: transparent;
+  text-align: center;
+  font-size: 18px;
+  padding: 3px;
+  box-shadow: 0 0 10px black;
+}
+#start_btn {
+  width: 100px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
+  font-size: 19px;
+  font-weight: bold;
+  background-color: rgba(97, 202, 101);
+}
+#start_btn:hover, #start_btn:active {
+  background-color: rgb(54, 116, 56);
+}
+
+@media (max-width: 500px) {
+  main {
+    margin-left: 0;
+  }
+  canvas {
+    display: block;
+    margin: 0 auto;
+  }
+  .wrap {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+/* Технические классы */
+._hide {
+  opacity: 0;
+  display: none;
+}

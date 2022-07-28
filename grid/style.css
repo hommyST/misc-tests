@@ -1,0 +1,80 @@
+body {
+  padding: 2rem;
+}
+
+.tooltip {
+	position: absolute;
+	min-width: 150px;
+	max-width: 35ch;
+	min-height: 30px;
+	background-color: #ebebebc1;
+	border: 1px solid hsla(0, 0%, 11%, 0.2);
+	border-radius: 2.4rem;
+	box-shadow: 0 0 1rem hsla(0, 0%, 20%, 0.25);
+	box-sizing: border-box;
+	padding: 0.1rem 1.5rem;
+	user-select: none;
+  pointer-events: none;
+	z-index: 99;
+	text-align: justify;
+  animation: scaleFade 2050ms ease-in-out 1s;
+}
+
+@keyframes scaleFade {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.1);
+  }
+}
+
+.cards {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 50em) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .card:last-child {
+    grid-column-start: 4;
+    grid-row: 1 / span 2;
+  }
+
+  /* utility */
+  .grid-col-span-2 {
+    grid-column: span 2;
+  }
+}
+
+.card {
+  box-sizing: border-box;
+	width: 100%;
+	min-height: 50px;
+  padding: 1rem 2rem;
+	border-radius: .4rem;
+	background-color: hsl(0, 0%, 88%);
+	box-shadow: 0 0 1rem hsla(0, 0%, 20%, 0.85);
+  transition: transform 150ms ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* Colors */
+.purple {
+  background-color: hsl(284, 44%, 56%);
+}
+.red {
+  background-color: hsl(360, 79%, 58%);
+}
+.green {
+  background-color: hsl(125, 79%, 58%);
+}
+.orange {
+  background-color: hsl(26, 79%, 58%);
+}
+

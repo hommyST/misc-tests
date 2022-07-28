@@ -1,0 +1,55 @@
+:root {
+  --success: hsl(122, 39%, 49%);
+}
+
+/* utils */
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+
+/* body */
+.cities_tip {
+  cursor: pointer;
+  margin-bottom: 0.2rem;
+}
+.cities_tip:hover {
+  background-color: hsl(122, 39%, 40%);
+  transform: translateY(-1px);
+}
+
+.out_card {
+	margin: 0;
+	min-height: 100%;
+	margin-top: 15px;
+	margin-inline: 15px;
+}
+.show_more:hover {
+  background-color: hsl(207, 90%, 40%);
+}
+.clear_city_input {
+	position: absolute;
+	right: 0rem;
+	top: 0.6rem;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 500ms ease-in-out;
+	user-select: none;
+	display: block;
+	text-align: center;
+	width: 30px;
+}
+.clear_city_input:hover {
+  color: red;
+  transform: rotate(180deg);
+}
+
+#capitalName {
+	font-size: 0.8rem;
+	color: hsl(207, 90%, 61%);
+	cursor: pointer;
+}
+#capitalName:hover {
+	color: hsl(207, 90%, 50%);
+	text-decoration: underline dashed hsl(207, 90%, 30%);
+}

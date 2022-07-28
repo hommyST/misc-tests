@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>Клавиатурный тренажёр</title>
+</head>
+<body>
+  <div class="modal">
+    <div class="wrap">
+      <h1>Поздравляю!</h1>
+      <p>Ваше время: <span class="end_time"></span></p>
+      <p>Всего ошибок: <span class="end_error"></span></p>
+      <p>Всего слов: <span class="end_word"></span></p>
+    </div>
+  </div>
+  <main>
+    <!-- <textarea data-input class="init_text"></textarea> -->
+    <div class="game">
+      <div data-out class="init_text">Далеко-далеко за словесными горами в стране, гласных и согласных.</div>
+      <input 
+        type="text" 
+        data-game-input 
+        class="game_input"
+        placeholder="Вводите текст сюда"
+      >
+    </div>
+  </main>
+</body>
+</html>

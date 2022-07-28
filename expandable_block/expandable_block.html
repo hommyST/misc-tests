@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TESTS</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="expandable.css">
+</head>
+
+<body>
+  <div class="container my-4">
+    <div class="row text-center">
+      <div class="col">
+        <button class="btn btn-outline-danger" id="btn"
+          data-toggle="popover" title="copied" data-content="Скопиравона в мышку: текущая дата"
+        >SomeButton</button>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col">
+        <div class="expandable">
+          <div class="expandable__header">Заголовок</div>
+          <div class="expandable__main close d-none">
+            <div class="expandable__body">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Свой рукописи единственное рот? От всех текстами то, имеет они несколько реторический вдали сих, на берегу всемогущая строчка возвращайся эта, путь своего!
+            Большого коварных своих ipsum! Буквоград, родного бросил строчка агентство скатился вершину жизни пояс последний рукопись рыбного свой? Ты грустный, свой послушавшись ?
+              <p>Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты. Дороге ручеек одна агентство рот парадигматическая решила всемогущая. Напоивший жаренные прямо ipsum речью переписывается запятых пояс несколько, первую до свой!</p>
+              <p>loremru</p>
+              <p>loremru</p>
+              <p>loremru</p>
+              <p>loremru</p>
+          </div>
+            <div class="expandable__footer">свернуть</div>
+          </div>
+        </div>
+        <div>Lorem ipsum dolor sit amet.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('#btn').addEventListener('click', () => {
+      let dateNow = new Date;
+      // navigator.clipboard.readText().then(data => console.log(data))
+      navigator.clipboard.writeText(dateNow.toUTCString()).then(data => console.log(data));
+    })
+  </script>
+
+
+  <script>
+    const expandable = document.querySelector('.expandable');
+    const expandableMain = document.querySelector('.expandable__main');
+    const expandableHead = document.querySelector('.expandable__header');
+    const expandableFoot = document.querySelector('.expandable__footer');
+
+    let expandableStyle = window.getComputedStyle(expandable); 
+    let tTime = expandableStyle.getPropertyValue('--transition-time');
+    tTime = parseInt(tTime);
+    console.log(tTime);
+
+    expandable.addEventListener('click', expOpenClose);
+
+    function expOpenClose(e) {
+      let mainHeight;
+      if (expandableMain.classList.contains('d-none')) {
+        expandableMain.classList.remove('d-none')
+        mainHeight = window.getComputedStyle(expandableMain).height;
+        expandableMain.classList.add('d-none')
+      } else {
+        mainHeight = window.getComputedStyle(expandableMain).height;
+      }
+
+      expandable.style.setProperty('--main-height', mainHeight)
+      let target = e.target;
+
+      if (target.classList.contains('expandable__header') || target.classList.contains('expandable__footer')) {
+
+        if (expandableMain.classList.contains('close')) {
+          expandableMain.classList.remove('d-none', 'close')
+          expandableMain.classList.add('open')
+          expandableHead.classList.add('border-bt-none')
+          expandable.style.setProperty('--clr-fold', 'red')
+          
+        } else if (expandableMain.classList.contains('open')) {
+          expandableMain.classList.remove('open')
+          expandableMain.classList.add('close')
+          expandable.style.setProperty('--clr-fold', 'green')
+          
+          setTimeout(() => {
+            expandableMain.classList.add('d-none')
+            expandableHead.classList.remove('border-bt-none')
+          }, tTime)
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
