@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Animation</title>
+</head>
+<body>
+  <main>
+    <h1 class="animation_play">Neo, follow the white rabbit...</h1>
+    <button>reset</button>
+  </main>
+
+  <script>
+    const h1 = document.querySelector('h1');
+    const resetBtn = document.querySelector('button');
+    const h1Length = h1.textContent.length;
+
+    h1.style.setProperty('--h1-length', h1Length);
+    h1.style.setProperty('--an-time', `${h1Length / 3}s`);
+    function resetBtnAnimation() {
+      resetBtn.style.transform = 'translateY(-100%)';
+      resetBtn.style.opacity = 0;
+      
+      setTimeout(() => {
+        resetBtn.style.transform = 'translateY(0)';
+        resetBtn.style.opacity = 1;
+      }, (h1Length / 3 * 1000) + 2000)
+    }
+    resetBtnAnimation();
+
+    resetBtn.addEventListener('click', () => {
+      h1.classList.remove('animation_play');
+      setTimeout(() => {
+        h1.classList.add('animation_play');
+        resetBtnAnimation();
+      }, 16);
+    })
+  </script>
+</body>
+</html>

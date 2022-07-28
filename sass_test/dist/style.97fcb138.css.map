@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.scss"],"names":[],"mappings":"AAEA;EACE;EACA,OAJK","file":"style.97fcb138.css","sourceRoot":"..","sourcesContent":["$dark: rgb(175, 214, 68);\r\n\r\nbody {\r\n  background-color: #f08;\r\n  color: $dark;\r\n}"]}

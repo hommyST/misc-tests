@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Misc</title>
+  <style>
+    * {
+      font-family: sans-serif;
+      font-size: 1rem;
+    }
+    body {
+      background-color: #ccc;
+    }
+    .wrap {
+      display: flex;
+      gap: 2rem;
+    }
+    .task {
+      padding: 1rem;
+      margin-bottom: 30px;
+    }
+    .left, .right, .task {
+      min-width: 300px;
+      background-color: #bfff482e;
+      box-shadow: 0 0 10px grey;
+    }
+    input {
+      display: block;
+      margin: 10px;
+      padding: 0.4rem;
+      border-radius: 6px;
+    }
+    input[type="button"] {
+      border: none;
+      border-radius: 5px 10px;
+      box-shadow: 0 0 10px rgb(189, 189, 189);
+      background-color: #bfff48;
+      width: 90%;
+    }
+    input[type="button"]:hover {
+      background-color: #98ca3a;
+    }
+    input[type="button"]:active {
+      border-radius: 10px 5px;
+    }
+    #out {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="task">
+    Задача: по кнопке b-1 заполняем массив arr значениями из инпутов, <br>
+    далее из этого массива выводим все значения через ", " в div out.
+  </div>
+  <div class="wrap">
+    <div class="left">
+      <input type="text" id="i-1" placeholder="Имя">
+      <input type="text" id="i-2" placeholder="Фамилия">
+      <input type="text" id="i-3" placeholder="Любые 4 символа">
+      <input type="text" id="i-4" placeholder="Любимая еда">
+      <input type="text" id="i-5" placeholder="Имя для кошки">
+      <input type="text" id="i-6" placeholder="Название планеты">
+      <input type="text" id="i-7" placeholder="Имя актрисы">
+      <input type="button" id="b-1" value="Жмак">
+    </div>
+    <div class="right">
+      <div id="out">Выводить строку сюда</div>
+    </div>
+  </div>
+
+  <script>
+    let arr = [];
+
+    // JS писать тут!
+
+  </script>
+</body>
+</html>
