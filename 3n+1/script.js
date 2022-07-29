@@ -15,6 +15,8 @@ function threeN(n = 3) {
 
 const numberInp = document.querySelector('#number')
 const controlToggle = document.querySelector('#controlToggle')
+const scalePlus = document.querySelector('#scalePlus')
+const scaleMinus = document.querySelector('#scaleMinus')
 const startBtn = document.querySelector('#startBtn')
 const stopBtn = document.querySelector('#stopBtn')
 const showN = document.querySelector('#showN')
@@ -49,6 +51,17 @@ numberInp.addEventListener('change', () => {
   n = +numberInp.value;
   N = n;
   out.textContent = N;
+})
+
+scalePlus.addEventListener('click', () => {
+  xStep++
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawNet();
+})
+scaleMinus.addEventListener('click', () => {
+  xStep--
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawNet();
 })
 
 

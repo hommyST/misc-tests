@@ -5,83 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="script.js" defer></script>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    html {
-      overflow-x: hidden;
-    }
-    main {
-      display: grid;
-      place-items: center;
-      width: calc(100vw - 20px);
-      min-height: 90vh;
-    }
-    button {
-      all: unset;
-      font-size: 1rem;
-      padding: 0.5em 1.5em;
-      background-color: #2196F3;
-      color: aliceblue;
-      cursor: pointer;
-    }
-    button:hover {
-      filter: contrast(4);
-    }
-    button.active {
-      background-color: #64DD17;
-      color: black;
-    }
-
-    .control {
-      display: grid;
-      justify-items: center;
-
-      position: fixed;
-      left: 0;
-      width: 230px;
-      background-image: linear-gradient(to bottom, hsl(199, 83%, 88%), hsl(95, 83%, 88%));
-      padding: 1em;
-      bottom: 0;
-      /* top: 0; */
-      box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.302);
-      transition: left 300ms ease-in-out;
-    }
-    .control.hide {
-      left: -230px;
-    }
-    .control-before {
-      content: '';
-      position: absolute;
-      right: -40px;
-      top: 15px;
-      height: 40px;
-      width: 40px;
-      border-radius: 0 10px 10px 0;
-      background-color: hsl(261, 83%, 72%);
-      cursor: pointer;
-
-      display: grid;
-      place-items: center;
-      color: white;
-    }
-    .control-before:hover {
-      background-color: hsl(261, 83%, 30%);
-      color: rgb(128, 255, 191);
-    }
-    #settingsIcon {
-      fill: currentColor;
-      transition: all 300ms ease;
-    }
-    .control-before:hover #settingsIcon {
-      transform: rotate(1turn);
-    }
-
-    .text-center {
-      text-align: center;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
   <title>3n + 1</title>
 </head>
 <body style="background-color: rgb(240, 240, 240);">
@@ -98,6 +22,8 @@
               <path d="M239.4,136.001c-57,0-103.3,46.3-103.3,103.3s46.3,103.3,103.3,103.3s103.3-46.3,103.3-103.3S296.4,136.001,239.4,136.001    z M239.4,315.601c-42.1,0-76.3-34.2-76.3-76.3s34.2-76.3,76.3-76.3s76.3,34.2,76.3,76.3S281.5,315.601,239.4,315.601z"/>
           </svg>
         </div>
+        <p>Масштаб</p>
+        <p class="scale"><button id="scalePlus">+</button><button id="scaleMinus">-</button></p>
         <p><label>Показывать число<input type="checkbox" id="showN"></label></p>
         <p><input type="number" id="number"></p>
         <p><button id="singleBtn">По одному числу</button></p>
