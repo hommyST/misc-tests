@@ -18,6 +18,7 @@ button {
   background-color: #2196F3;
   color: aliceblue;
   cursor: pointer;
+  user-select: none;
 }
 button:hover {
   filter: contrast(4);
