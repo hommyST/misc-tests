@@ -1,6 +1,6 @@
 // Назначаем константы
-// const wsServerUrl = 'ws://localhost:16969'
-const wsServerUrl = 'ws://hommy.b96087jw.beget.tech:16969'
+const wsServerUrl = 'ws://localhost:16969'
+// const wsServerUrl = 'ws://hommy.b96087jw.beget.tech:16969'
 
 const popup = document.querySelector('.popup');
 const gameWrap = document.querySelector('.game__wrap');
@@ -134,9 +134,11 @@ function addToBoard(stepInfo) {
 }
 
 function isWin() {
+  let i = 0;
   board.forEach(el => {
     if (el.every(elem => elem === player)) win(player, i);
     if (el.every(elem => elem === oponent)) win(oponent, i);
+    i++
   })
 
   if (board[0][0] === player && board[1][1] === player && board[2][2] === player) win(player, 3)
@@ -184,8 +186,6 @@ function win(winner, line) {
   })
   showPopup(`Победил ${winner}`, 3000)
   ws.send(JSON.stringify({type: 'end', data: winner}))
-  console.trace('WIN')
-  console.log('winner  ' + winner);
   setTimeout(clearGame, 3000)
 }
 

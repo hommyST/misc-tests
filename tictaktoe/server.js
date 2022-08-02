@@ -8,12 +8,11 @@ const wss = new WebSocketServer({
 const rooms = [];
 let roomsId = 0;
 
-
+console.log('Server started...');
 
 wss.on('connection', (ws, req, client) => {
   const ip = req.socket.remoteAddress;
   // const ip2 = req.headers['x-forwarded-for']?.split(',')[0].trim();
-  console.log('================================');
   console.log('Connected: ', ip);
   // writeLog({ip, roomsId})
 
