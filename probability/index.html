@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Probability</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 95vh;
+      background-color: #263238;
+      display: grid;
+      place-items: center;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="graph" width="1800" height="500"></canvas>
+
+  <script>
+    const canvas = document.querySelector('#graph')
+    const ctx = canvas.getContext('2d')
+
+    const xFactor = 5;
+    const yFactor = 35;
+    const yHeight = canvas.height - 80
+    const resLength = 360
+
+    function isRandom() {
+      let res = []
+
+      for (let i=0; i < resLength; i++) {
+        let n = Math.random() > 0.5 ? false : true
+        res.push(n)
+      }
+
+      return res
+
+      let head = res.filter(el => el === 'Решка')
+      let tail = res.filter(el => el === 'Орёл')
+    }
+
+    function draw() {
+      let arr = isRandom()
+      ctx.moveTo(10*xFactor, yHeight);
+      let hue = Math.round(Math.random() * 360)
+      ctx.strokeStyle = `hsl(${hue}, 89%, 61%)`;
+      ctx.font = '17px sans-serif';
+      ctx.fillStyle = `hsl(${hue - 180}, 89%, 70%)`;
+
+      ctx.fillText(`TAIL:`, 0, yHeight - yFactor + 5);
+      ctx.fillText(`HEAD:`, 0, yHeight + yFactor + 5);
+      
+      for (let i = 0; i < arr.length; i++) {
+        const el = arr[i];
+        let y = el ?  yHeight -yFactor : yHeight + yFactor
+        ctx.lineTo((i + 10) * xFactor, y);
+        ctx.stroke();
+      }
+
+      let tail = arr.filter(el => el).length;
+      let head = arr.length - tail;
+      ctx.font = '30px sans-serif';
+      let max = longestSequence(arr)
+      ctx.fillText(`TAIL: ${tail}\nHEAD: ${head}`, canvas.width / 2 -250, canvas.height / 2 -50);
+      ctx.fillText(`Max sequense: ${max}`, canvas.width / 2 -220, canvas.height / 2 + 20);
+
+      // console.log(arr);
+    }
+
+    function drawNet() {
+      for (let i = 0; i < +canvas.height; i += xFactor) {
+        ctx.beginPath();
+        ctx.strokeStyle = 'hsl(199, 0%, 69%, 0.3)';
+        ctx.moveTo(0, i);
+        ctx.lineWidth = 0.5
+        ctx.lineTo(+canvas.width, i);
+        ctx.closePath()
+        ctx.stroke();
+      }
+      
+      for (let i = 0; i < +canvas.width; i += xFactor) {
+        ctx.beginPath();
+        ctx.strokeStyle = 'hsl(199, 0%, 69%, 0.3)';
+        ctx.moveTo(i, 0);
+        ctx.lineWidth = 0.5
+        ctx.lineTo(i, +canvas.height);
+        ctx.closePath()
+        ctx.stroke();
+      }
+      // ctx.moveTo(0, canvas.height - yFactor);
+      ctx.closePath()
+    }
+
+
+    function longestSequence(arr) {
+      let i = 0
+      let res = []
+      let longest = arr.reduce((prev, curr) => {
+        if (prev === curr) i++
+        else {
+          if (i !== 0) {
+            res.push(i)
+            i = 0
+          }
+        }
+        return prev
+      })
+      let max = Math.max(...res)
+      return max
+    }
+    
+    drawNet()
+    draw()
+    
+    setInterval(() => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawNet()
+      draw()
+    }, 5000)
+
+  </script>
+</body>
+</html>

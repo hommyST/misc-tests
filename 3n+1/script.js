@@ -94,11 +94,11 @@ function startAnimating() {
   fpsInterval = 1000 / fps;
   then = Date.now();
   startTime = then;
-  tick();
+  animate();
 }
 
-function tick() {
-  if (!stopAnim) requestAnimationFrame(tick)
+function animate() {
+  if (!stopAnim) requestAnimationFrame(animate)
   now = Date.now();
   difTime = now - then;
   if (difTime > fpsInterval) {

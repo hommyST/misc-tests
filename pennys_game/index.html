@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>Penny's game</title>
+</head>
+<body>
+  <h1>Penny's game</h1>
+  <main>
+    <div class="game_wrap">
+
+      <div class="stat_table">
+        <div class="header">
+          <input type="text" id="playerName1" placeholder="Игрок 1">
+          <input type="text" id="playerName2" placeholder="Игрок 2">
+        </div>
+        <div class="body">
+          <div class="col1">
+            <div class="row">|</div>
+            <div class="row">|||</div>
+            <div class="row">||</div>
+          </div>
+          <div class="col2">
+            <div class="row">|</div>
+            <div class="row">|||</div>
+            <div class="row">||</div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="player_choise">
+            <img srcset="./img/head.webp, ./img/head.png" alt="head" class="head">
+            <img srcset="./img/tail.webp, ./img/tail.png" alt="tail" class="tail">
+            <img srcset="./img/tail.webp, ./img/tail.png" alt="tail" class="tail">
+          </div>
+          <div class="player_choise">
+            <img srcset="./img/tail.webp, ./img/tail.png" alt="tail" class="tail">
+            <img srcset="./img/head.webp, ./img/head.png" alt="head" class="head">
+            <img srcset="./img/tail.webp, ./img/tail.png" alt="tail" class="tail">
+          </div>
+        </div>
+      </div>
+
+      <div class="game_col">
+
+        <div class="choose">
+          <h3>Выберите последовательность</h3>
+          <div class="coins">
+            <img srcset="./img/head.webp, ./img/head.png" alt="head" class="head">
+            <img srcset="./img/tail.webp, ./img/tail.png" alt="tail" class="tail">
+          </div>
+        </div>
+        
+        <div class="coin_container" style="display:none">
+        <!-- <div class="coin_container" > -->
+          <div class="front">
+            <img srcset="./img/head.webp, ./img/head.png" alt="head" class="head">
+          </div>
+          <div class="back">
+            <img srcset="./img/tail.webp, ./img/tail.png" alt="tail" class="tail">
+          </div>
+        </div>
+
+        <div class="sequence">
+          <img srcset="./img/head.webp, ./img/head.png" alt="head" class="head">
+          <img srcset="./img/tail.webp, ./img/tail.png" alt="tail" class="tail">
+          <img srcset="./img/tail.webp, ./img/tail.png" alt="tail" class="tail">
+          <img srcset="./img/tail.webp, ./img/tail.png" alt="tail" class="tail">
+          <img srcset="./img/head.webp, ./img/head.png" alt="head" class="head">
+          <img srcset="./img/tail.webp, ./img/tail.png" alt="tail" class="tail">
+          <img srcset="./img/head.webp, ./img/head.png" alt="head" class="head">
+          <img srcset="./img/tail.webp, ./img/tail.png" alt="tail" class="tail">
+          <img srcset="./img/head.webp, ./img/head.png" alt="head" class="head">
+          <img srcset="./img/head.webp, ./img/head.png" alt="head" class="head">
+        </div>
+      </div>
+
+      <div><button id="testBtn">test</button></div>
+    </div>
+  </main>
+</body>
+</html>
