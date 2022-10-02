@@ -1,63 +1,46 @@
-let a = [
-  {
-    "trigger_id": 79,
-    "email": 1
-  },
-  {
-    "trigger_id": 59,
-    "telegram": 1
-  },
-  {
-    "trigger_id": 59,
-    "email": 1
-  },
-  {
-    "trigger_id": 27,
-    "telegram": 1
-  },
-  {
-    "trigger_id": 27,
-    "email": 1
-  },
-  {
-    "trigger_id": 29,
-    "telegram": 1
-  },
-  {
-    "trigger_id": 29,
-    "email": 1
-  },
-  {
-    "trigger_id": 35,
-    "telegram": 1
-  },
-  {
-    "trigger_id": 35,
-    "email": 1
-  },
-  {
-    "trigger_id": 25,
-    "telegram": 1
-  },
-  {
-    "trigger_id": 25,
-    "email": 1
-  }
-]
+function first(a) {
+  return a > 0
+}
+function second(a) {
+  return a >= 0
+}
+function third(a) {
+  return a < 0
+}
 
-let res = [];
-a.forEach(trigger => {
-  a.forEach(el => {
-    if (trigger.trigger_id === el.trigger_id) {
-      let tmp = {
-        trigger_id: trigger.trigger_id,
-        email: 1,
-        telegram: 1
-      }
 
-      res.push(tmp);
-    }
+function main(num, ...handlers) {
+  let res = []
+  handlers.map(f => res.push(f(num)))
+  return res
+}
+
+
+// console.log(main(-5, first, third, (num) => num * 15));
+
+
+// --------------------------------------------------------------
+function f1(...params) {
+  console.log(this);
+  params.map(str => {
+    console.log(str);
   })
-})
+}
 
-console.log(res);
+const f11 = f1.bind('bar')
+// f11('somestr', 'foo')
+
+let str = 'minUs';
+let [fletter, ...restletters] = str
+// console.log(fletter.toUpperCase() + restletters.join('').toLowerCase());
+
+function upperFirstLetter(word, clear = false) {
+  let [fletter, ...restletters] = word
+  let res = clear ? 
+    fletter.toUpperCase() + restletters.join('') :
+    fletter.toUpperCase() + restletters.join('').toLowerCase()
+  return res
+}
+
+let r = upperFirstLetter('someWord cAn be Done')
+console.log(r);
